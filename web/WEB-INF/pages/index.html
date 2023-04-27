@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base href="/leave/">
+    <title>匿名留言</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <meta name="referrer" content="no-referrer" />
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    /*网页主体样式*/
+    .con_body{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 120px;
+    }
+    /*右边图片样式*/
+    .img_con{
+        width: 500px;
+        height: 500px;
+        background: url(https://api.vvhan.com/api/bing?rand=sj) no-repeat;
+        background-size: cover;
+        border-radius: 10px 0 0 10px;
+        position: relative;
+    }
+    /*左侧内容样式*/
+    .work{
+        width: 500px;
+        height: 500px;
+        border-radius: 0 10px 10px 0;
+        background-color: white;
+        /*margin: auto;*/
+    }
+    /*左侧标头*/
+    .top{
+        margin:auto;
+        width: 250px;
+        padding-top: 30px;
+        font-weight: 40;
+        font-family: "Adobe 黑体 Std R",serif;
+        font-size: 20px;
+        text-align: center;
+        border-bottom: 1px solid;
+    }
+    /*按钮整体区域*/
+    .work_body{
+        margin: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /*按钮*/
+    .work_body_con{
+        width: 100px;
+        height: 40px;
+        border: #cccccc 1px solid;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+    .con_a{
+        text-decoration:none;
+        color:black;
+    }
+</style>
+<body>
+    <div class="con_body">
+        <div class="img_con"></div>
+        <div class="work">
+            <div class="top">
+                <p id="title_font" style="text-align: center">Anonymous message</p>
+            </div>
+            <div class="work_body">
+                   <div class="work_body_con">
+                       <a th:href="@{LeaveServlet(req='write')}" class="con_a">写留言</a>
+                   </div>
+                <div class="work_body_con">
+                    <a th:href="@{LeaveServlet(req='search')}" class="con_a">查留言</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

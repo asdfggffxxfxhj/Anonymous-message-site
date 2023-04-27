@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color:red;
+}
+.img_con{
+    width: 500px;
+    height: 500px;
+    background: url(https://api.vvhan.com/api/bing?rand=sj) no-repeat;
+    background-color: aqua;
+    background-size: cover;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base href="/leave/">
+    <title>查询留言</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    /*页面内容主体区域*/
+    .body_con{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        width: 700px;
+        height: 600px;
+        background-color: white;
+    }
+    /*返回按钮*/
+    .return{
+        width: 50px;
+        height: 30px;
+        border: #cccccc 2px solid;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .return a{
+        text-decoration: none;
+        color: black;
+        text-align: center;
+    }
+    /*写留言文字*/
+    .top_font{
+        margin: 0 auto;
+        border-bottom: black 2px solid;
+        height: 80px;
+    }
+    .top_font p{
+        font-weight: bolder;
+        font-size: 30px;
+        color: #555;
+    }
+    /*留言输入区域*/
+    .write{
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    /*去除标签原有的边框*/
+    .msg_input{
+        border: none;
+    }
+    /*设置输入框点击之后的效果*/
+    input:focus {
+        outline: none;
+        border: 2px solid #cccccc;
+        border-radius: 20px;
+    }
+    /*标签一的属性*/
+    .mg_1{
+        width: 300px;
+        height: 30px;
+        text-align: center;
+    }
+    /*控制两个输入框之间的间距*/
+    .msg_name{
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: #cccccc solid 2px;
+    }
+    /*提交按钮*/
+    .foot{
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .foot_bottom{
+        text-align: center;
+        width: 80px;
+        height: 40px;
+        border: #cccccc 2px solid;
+        border-radius: 8px;
+    }
+    /*表格区域的属性*/
+    .show_msg{
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    table{
+        border-collapse: collapse; /* 折叠表格边框 */
+        border-spacing: 0; /* 去除间隔空白 */
+        border: #cccccc;
+    }
+    td{
+        text-align: center;
+    }
+    /*表头的内容格式*/
+    .table_titlw{
+        color: #555555;
+    }
+
+</style>
+<body>
+<div class="body_con">
+    <!--        返回按钮-->
+    <div class="return">
+        <a href="index">返回</a>
+    </div>
+    <!--        查留言文字-->
+    <div class="top_font">
+        <p >查留言</p>
+    </div>
+<!--    查询留言区域-->
+    <div class="write">
+        <form action="Search" method="post">
+            <div class="msg_name">
+                <input type="text" name="msg_name" placeholder="输入查询暗号(●'◡'●)" class="msg_input mg_1">
+            </div>
+            <div class="foot">
+                <input type="submit" class="foot_bottom">
+            </div>
+        </form>
+    </div>
+<!--   展示查询结果的区域-->
+<table border="1" class="show_msg">
+    <tr>
+        <th class="table_titlw">留言id</th>
+        <th class="table_titlw">留言暗号</th>
+        <th class="table_titlw">留言内容</th>
+        <th class="table_titlw">留言时间</th>
+    </tr>
+    <tbody th:unless="${#lists.isEmpty(msg)}">
+        <tr th:each="ms:${msg}">
+            <td th:text="${ms.msg_id}">id</td>
+            <td th:text="${ms.msg_name}">name</td>
+            <td th:text="${ms.msg_content}">content</td>
+            <td th:text="${ms.msg_time}">time</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</body>
+</html>
