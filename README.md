@@ -5,14 +5,14 @@
 
 ### 网站主页
 
-![enter description here](./images/index.png)
+![enter description here](./imgs/index.png)
 
 ### 添加留言
 
-![writer](./images/writer.png)
+![writer](./imgs/writer.png)
 
 ### 查询留言
-![search](./images/search.png)
+![search](./imgs/search.png)
 
 ### 一些说明
 
